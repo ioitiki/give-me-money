@@ -27,5 +27,11 @@ export class ProjectService {
     return this.database.object('projects/' + projectId);
   }
 
+  updateProject(projectToUpdate) {
+    this.projects.update(projectToUpdate.$key, projectToUpdate);
+  }
+
+
+
 
 }

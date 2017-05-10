@@ -23,4 +23,9 @@ export class ProjectAllComponent implements OnInit {
     this.router.navigate(['project', project.$key]);
   }
 
+  fundProject(project: Project, amount: string) {
+    project.progress += parseInt(amount);
+    this.projectService.updateProject(project);
+  }
+
 }

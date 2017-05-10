@@ -1,56 +1,61 @@
-<div class="row">
-  <form materialize class="col s12" [formGroup]="projectForm">
+<div class="card">
+  <div class="card-content">
+    <span class="card-title"><em>Add New Project</em></span>
     <div class="row">
-      <div class="input-field col s6">
-        <input type="text" id="title" formControlName="title" required>
-        <label for="title">Project Title</label>
-      </div>
-      <div class="input-field col s6">
-        <input type="text" id="creator" formControlName="creator" required>
-        <label for="creator">Project Creator</label>
-      </div>
+      <form materialize class="col s12" [formGroup]="projectForm">
+        <div class="row">
+          <div class="input-field col s6">
+            <input type="text" id="title" formControlName="title" required>
+            <label for="title">Project Title</label>
+          </div>
+          <div class="input-field col s6">
+            <input type="text" id="creator" formControlName="creator" required>
+            <label for="creator">Project Creator</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <select materialize="material_select" [materializeSelectOptions]="categories" formControlName="category" required>
+              <option value="" disabled selected>Choose a Category</option>
+              <option *ngFor="let option of categories" [value]="option">{{option}}</option>
+            </select>
+          </div>
+          <div class="input-field col s6">
+            <i class="material-icons prefix">attach_money</i>
+            <input type="number" id="goal" min="0.00" formControlName="goal" required>
+            <label for="goal">Funding Goal</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea id="description" class="materialize-textarea" formControlName="description" required></textarea>
+            <label for="description">Project Description</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea id="purpose" class="materialize-textarea" formControlName="purpose" required></textarea>
+            <label for="purpose">Project Purpose</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea id="rewards" class="materialize-textarea" formControlName="rewards" required></textarea>
+            <label for="rewards">Funding Rewards</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input type="text" id="image_src" formControlName="image_src" required>
+            <label for="image_src">Image URL</label>
+          </div>
+        </div>
+        <div class="row">
+          <button [disabled]="!projectForm.valid" class="btn waves-effect waves-light" (click)="addProject()" routerLink="">Submit Project
+            <i class="material-icons right">send</i>
+          </button>
+        </div>
+      </form>
     </div>
-    <div class="row">
-      <div class="input-field col s6">
-        <select materialize="material_select" [materializeSelectOptions]="categories" formControlName="category" required>
-          <option value="" disabled selected>Choose a Category</option>
-          <option *ngFor="let option of categories" [value]="option">{{option}}</option>
-        </select>
-      </div>
-      <div class="input-field col s6">
-        <i class="material-icons prefix">attach_money</i>
-        <input type="number" id="goal" min="0.00" formControlName="goal" required>
-        <label for="goal">Funding Goal</label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <textarea id="description" class="materialize-textarea" formControlName="description" required></textarea>
-        <label for="description">Project Description</label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <textarea id="purpose" class="materialize-textarea" formControlName="purpose" required></textarea>
-        <label for="purpose">Project Purpose</label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <textarea id="rewards" class="materialize-textarea" formControlName="rewards" required></textarea>
-        <label for="rewards">Funding Rewards</label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <input type="text" id="image_src" formControlName="image_src" required>
-        <label for="image_src">Image URL</label>
-      </div>
-    </div>
-    <div class="row">
-      <button [disabled]="!projectForm.valid" class="btn waves-effect waves-light" (click)="addProject()" routerLink="">Submit Project
-        <i class="material-icons right">send</i>
-      </button>
-    </div>
-  </form>
+  </div>
 </div>
