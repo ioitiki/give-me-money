@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Project } from '../project.model';
 import { ProjectService } from '../project.service';
 import { Router } from "@angular/router";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-project-all',
@@ -10,6 +11,10 @@ import { Router } from "@angular/router";
 })
 export class ProjectAllComponent implements OnInit {
   projects: Project[];
+
+  funding = new FormGroup({
+    amount: new FormControl('', Validators.required)
+  })
 
   constructor(private projectService: ProjectService, private router: Router) { }
 
@@ -23,8 +28,8 @@ export class ProjectAllComponent implements OnInit {
     this.router.navigate(['project', project.$key]);
   }
 
-  fundProject(project: Project, amount: string) {
-    project.progress += parseInt(amount);
+  fundProject(project: Project) {
+    project.progress += parseInt(this.funding.value.amount);
     this.projectService.updateProject(project);
   }
 

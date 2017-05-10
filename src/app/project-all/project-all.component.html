@@ -1,7 +1,7 @@
 <div class="list-container">
-  <div *ngFor="let project of projects" class="card z-depth-5 list-cards">
+  <div *ngFor="let project of projects" class="card large z-depth-2 list-cards">
     <div class="card-image">
-      <img (click)="goToDetails(project)" src="{{project?.image_src}}">
+      <img class="responsive-img" (click)="goToDetails(project)" src="{{project?.image_src}}">
       <a class="activator btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">attach_money</i></a>
     </div>
     <div class="card-content">
@@ -11,15 +11,17 @@
     </div>
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="funding" type="number" #fundingAmount>
-          <label for="funding">Funding Amount</label>
+      <form materialize [formGroup]="funding">
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="funding" type="number" formControlName="amount" required>
+            <label for="funding">Funding Amount</label>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <button class="btn waves-effect waves-light blue-grey darken-1" (click)="fundProject(project, fundingAmount.value); fundingAmount.value='';">Fund</button>
-      </div>
+        <div class="row">
+          <button [disabled]="!funding.valid" class="btn waves-effect waves-light blue-grey darken-1" (click)="fundProject(project);">Fund</button>
+        </div>
+      </form>
     </div>
     <div class="card-action">
       <div class="progress">

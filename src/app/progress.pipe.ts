@@ -12,7 +12,7 @@ export class ProgressPipe implements PipeTransform {
     if (option === 'style') {
       var color = progress * 120;
         return {'width': `${progress*100}%`,
-        'background-color': `hsl(${color}, 90%, 45%)`};
+                'background-color': `hsl(${color}, 90%, 45%)`};
     } else if (option === 'percent') {
       return `${progress*100}%`;
     }

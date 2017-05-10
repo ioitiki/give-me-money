@@ -15,6 +15,23 @@ $lines-to-show: 3;
   text-overflow: ellipsis;
 }
 
+$title-font-size: 24px;
+$title-line-height: 1.333;
+$title-lines: 2;
+
+.card-title {
+  display: block;
+  display: -webkit-box;
+  max-height: $title-font-size*$title-line-height*$title-lines;
+  margin: 0 auto;
+  font-size: $title-font-size;
+  line-height: $title-line-height;
+  -webkit-line-clamp: $title-lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .list-container {
   width: 90vw;
   margin: auto;
@@ -29,6 +46,15 @@ $lines-to-show: 3;
   flex: 0 1 auto;
   margin: 10px;
   max-width: 320px;
+
+  .card-image {
+    overflow: visible;
+    img {
+      // max-height: 220px;
+      width: auto;
+      margin: auto;
+    }
+  }
 }
 
 .card-action {

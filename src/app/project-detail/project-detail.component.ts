@@ -3,6 +3,7 @@ import { Project } from '../project.model';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { ProjectService } from '../project.service';
+import { FormGroup, FormControl, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-project-detail',
@@ -12,6 +13,10 @@ import { ProjectService } from '../project.service';
 export class ProjectDetailComponent implements OnInit {
   projectId: string;
   project: Project;
+
+  funding = new FormGroup({
+    amount: new FormControl('', Validators.required)
+  })
 
   constructor(
     private route: ActivatedRoute,
@@ -26,6 +31,11 @@ export class ProjectDetailComponent implements OnInit {
         this.project = project;
       })
     })
+  }
+
+  fundProject(project: Project) {
+    project.progress += parseInt(this.funding.value.amount);
+    this.projectService.updateProject(project);
   }
 
 }
