@@ -36,6 +36,7 @@ export class ProjectDetailComponent implements OnInit {
   fundProject(project: Project) {
     project.progress += parseInt(this.funding.value.amount);
     this.projectService.updateProject(project);
+    this.funding.reset();
   }
 
 }
