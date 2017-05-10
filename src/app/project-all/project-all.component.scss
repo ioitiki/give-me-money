@@ -27,3 +27,16 @@ $lines-to-show: 3;
   flex: 0 1 auto;
   max-width: 500px;
 }
+
+.card-action {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card-category {
+  color: gray;
+}
+
+.card-image {
+  cursor: pointer;
+}
