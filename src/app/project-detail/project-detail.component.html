@@ -12,13 +12,13 @@
     <div class="col s12 m8">
       <img class="responsive-img" src="{{project?.image_src}}" /><br>
       <div class="chip">
-        <img src="assets/images/{{project?.category}}.png" alt="Contact Person">
+        <img *ngIf="project" src="assets/images/{{project?.category}}.png" alt="Contact Person">
         {{project?.category}}
       </div>
     </div>
     <div class="col s12 m4">
       <div class="progress">
-        <div class="determinate" [ngStyle]="project | progress:'style'"></div>
+        <div *ngIf="project" class="determinate" [ngStyle]="project | progress:'style'"></div>
       </div>
       <h5>{{project?.progress | currency:'USD':1-2.2}}</h5>
       <h6>{{project?.goal | currency:'USD':1-2.2}}</h6>
@@ -32,6 +32,7 @@
             <form materialize [formGroup]="funding">
               <div class="row">
                 <div class="input-field col s12">
+                  <i class="material-icons prefix">attach_money</i>
                   <input id="funding" type="number" formControlName="amount" required>
                   <label for="funding">Funding Amount</label>
                 </div>
