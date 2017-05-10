@@ -1,0 +1,29 @@
+$font-size: 15px;
+$line-height: 1.5;
+$lines-to-show: 3;
+
+.card-content p {
+  display: block;
+  display: -webkit-box;
+  max-height: $font-size*$line-height*$lines-to-show;
+  margin: 0 auto;
+  font-size: $font-size;
+  line-height: $line-height;
+  -webkit-line-clamp: $lines-to-show;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.list-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;;
+  align-content: space-around;
+}
+
+.list-cards {
+  flex: 0 1 auto;
+  max-width: 500px;
+}

@@ -22,14 +22,15 @@ export class ProjectNewComponent implements OnInit {
       goal: ['', Validators.required],
       purpose: ['', Validators.required],
       rewards: ['', Validators.required],
-      category: ['', Validators.required]
+      category: ['', Validators.required],
+      image_src: ['', Validators.required]
     })
     this.categories = this.projectService.getCategories();
   }
 
   addProject() {
-    var {title, creator, description, goal, purpose, rewards, category} = this.projectForm.value;
-    var newProject = new Project(title, creator, description, goal, purpose, rewards, category);
+    var {title, creator, description, goal, purpose, rewards, category, image_src} = this.projectForm.value;
+    var newProject = new Project(title, creator, description, goal, purpose, rewards, category, image_src);
     this.projectService.addProject(newProject);
     this.projectForm.reset();
   }

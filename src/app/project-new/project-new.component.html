@@ -42,7 +42,13 @@
       </div>
     </div>
     <div class="row">
-      <button [disabled]="!projectForm.valid" class="btn waves-effect waves-light" (click)="addProject()">Submit Project
+      <div class="input-field col s12">
+        <input type="text" id="image_src" formControlName="image_src" required>
+        <label for="image_src">Image URL</label>
+      </div>
+    </div>
+    <div class="row">
+      <button [disabled]="!projectForm.valid" class="btn waves-effect waves-light" (click)="addProject()" routerLink="">Submit Project
         <i class="material-icons right">send</i>
       </button>
     </div>

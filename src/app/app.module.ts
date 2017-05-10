@@ -10,6 +10,11 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { ProjectNewComponent } from './project-new/project-new.component';
 import { ProjectService } from './project.service';
+import { ProjectAllComponent } from './project-all/project-all.component';
+import { AboutComponent } from './about/about.component';
+import { routing } from './app.routing';
+import { ProjectDetailComponent } from './project-detail/project-detail.component';
+
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -21,13 +26,17 @@ export const firebaseConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    ProjectNewComponent
+    ProjectNewComponent,
+    ProjectAllComponent,
+    AboutComponent,
+    ProjectDetailComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
+    routing,
     MaterializeModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule

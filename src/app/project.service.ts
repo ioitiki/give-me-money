@@ -4,7 +4,7 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 
 @Injectable()
 export class ProjectService {
-  categories: string[] = ["Tech", "Community", "Health"];
+  categories: string[] = ["Art", "Comics", "Crafts", "Dance", "Design", "Fashion", "Film & Video", "Food", "Games", "Journalism", "Music", "Photography", "Publishing", "Technology", "Theater"];
   projects: FirebaseListObservable<any[]>;
 
   constructor(private database: AngularFireDatabase) {
