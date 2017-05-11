@@ -39,9 +39,33 @@
           </div>
         </div>
         <div class="row">
-          <div class="input-field col s12">
-            <textarea id="rewards" class="materialize-textarea" formControlName="rewards" required></textarea>
-            <label for="rewards">Funding Rewards</label>
+          <div formArrayName="rewards">
+            <div *ngFor="let reward of rewards.controls; let i=index" [formGroupName]="i">
+              <div class="row">
+                <a class="btn-floating btn-flat right close-reward" (click)="removeReward(i)"><i class="material-icons right black-text">close</i></a>
+
+              </div>
+              <div class="row">
+                <div class="input-field col s6">
+                  <input type="number" id="pledge" formControlName="pledge" required>
+                  <label for="pledge">Reward #{{i + 1}} Pledge</label>
+                </div>
+                <div class="input-field col s6">
+                  <input type="text" id="product" formControlName="product" required>
+                  <label for="product">Reward #{{i + 1}}</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea id="reward-description" class="materialize-textarea" formControlName="description" required></textarea>
+                  <label for="reward-description">Reward #{{i + 1}} Description</label>
+                </div>
+              </div>
+            </div>
+            <button class="btn waves-effect waves-light" (click)="addReward()">Add Reward
+              <i class="material-icons right">add</i>
+            </button>
+
           </div>
         </div>
         <div class="row">

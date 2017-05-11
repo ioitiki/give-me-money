@@ -40,4 +40,12 @@ export class ProjectDetailComponent implements OnInit {
     this.funding.reset();
   }
 
+  setFunding(amount: number) {
+    this.funding.controls['amount'].setValue(amount);
+  }
+
+  resetFunding() {
+    this.funding.reset();
+  }
+
 }
