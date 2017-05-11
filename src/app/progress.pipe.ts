@@ -14,7 +14,7 @@ export class ProgressPipe implements PipeTransform {
         return {'width': `${progress*100}%`,
                 'background-color': `hsl(${color}, 90%, 45%)`};
     } else if (option === 'percent') {
-      return `${progress*100}%`;
+      return `${(progress*100).toFixed(2)}%`;
     }
   }
 

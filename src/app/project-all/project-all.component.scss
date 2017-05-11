@@ -48,11 +48,17 @@ $title-lines: 2;
   max-width: 320px;
 
   .card-image {
-    overflow: visible;
+    position: relative;
+    overflow: hidden;
+    height: 213px;
     img {
-      // max-height: 220px;
-      width: auto;
+      position: absolute;
+      top: -9999px;
+      bottom: -9999px;
+      left: -9999px;
+      right: -9999px;
       margin: auto;
+      overflow: hidden;
     }
   }
 }
@@ -61,15 +67,12 @@ $title-lines: 2;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  // .div {
-  //   flex: 0 1 auto;
-  // }
 }
 
 .progress {
   margin-right: 20px;
   height: 7px;
+  width: 100%;
 }
 
 .card-category {
@@ -78,4 +81,9 @@ $title-lines: 2;
 
 .card-image {
   cursor: pointer;
+}
+
+.info-bar {
+  width: 200px;
+  padding-right: 20px;
 }

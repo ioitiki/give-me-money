@@ -1,10 +1,10 @@
 <div class="list-container">
   <div *ngFor="let project of projects" class="card large z-depth-2 list-cards">
     <div class="card-image">
-      <img class="responsive-img" (click)="goToDetails(project)" src="{{project?.image_src}}">
-      <a class="activator btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">attach_money</i></a>
+      <img (click)="goToDetails(project)" src="{{project?.image_src}}">
     </div>
     <div class="card-content">
+      <a class="activator btn-floating right waves-effect waves-light red"><i class="material-icons">attach_money</i></a>
       <span class="card-title" >{{project?.title}}</span>
       <h6 class="card-category">{{project?.category}}</h6>
       <p>{{project?.description}}</p>
@@ -25,13 +25,21 @@
       </form>
     </div>
     <div class="card-action">
-      <div class="progress">
-        <div class="determinate" [ngStyle]="project | progress:'style'"></div>
+      <div class="col s8 info-bar">
+        <!-- <div class="col s12"> -->
+          <div class="progress">
+            <div class="determinate" [ngStyle]="project | progress:'style'"></div>
+          </div>
+          <span>{{project | progress:'percent'}}</span>
+          <span class="right">{{project?.backers}} Backers</span>
+
+        <!-- </div> -->
+        <!-- <div class="col s12">
+        </div> -->
       </div>
-      <!-- <p>{{project | progress:'percent'}}</p> -->
-
-      <a (click)="goToDetails(project)" class="btn waves-effect waves-light blue-grey darken-1"><i class="material-icons">menu</i></a>
+      <div class="col s3">
+        <a (click)="goToDetails(project)" class="btn waves-effect waves-light blue-grey darken-1"><i class="material-icons">menu</i></a>
+      </div>
     </div>
-
   </div>
 </div>
