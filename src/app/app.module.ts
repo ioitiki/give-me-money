@@ -8,8 +8,10 @@ import { AppComponent } from './app.component';
 import { masterFirebaseConfig } from './api-keys';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 import { ProjectNewComponent } from './project-new/project-new.component';
 import { ProjectService } from './project.service';
+import { AuthService } from './auth.service';
 import { ProjectAllComponent } from './project-all/project-all.component';
 import { AboutComponent } from './about/about.component';
 import { routing } from './app.routing';
@@ -45,9 +47,10 @@ export const firebaseConfig = {
     routing,
     MaterializeModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
-  providers: [ProjectService],
+  providers: [ProjectService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,8 +4,16 @@
       <div class="nav-wrapper blue-grey darken-1">
         <a href="" class="brand-logo"><i class="material-icons">monetization_on</i>Give Me Money</a>
         <ul class="right">
+          <li *ngIf="user">
+            <div class="chip">
+              <img src="{{user.photoURL}}" alt="Contact Person">
+              {{user.displayName}}
+            </div>
+          </li>
           <li><a routerLink="about"><i class="material-icons">info_outline</i></a></li>
           <li><a routerLink="new"><i class="material-icons">add</i></a></li>
+          <li *ngIf="!user"><a (click)="this.authService.login()">Login</a></li>
+          <li *ngIf="user"><a (click)="this.authService.logout()">Logout</a></li>
         </ul>
       </div>
     </nav>
