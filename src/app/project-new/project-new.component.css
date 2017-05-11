@@ -13,3 +13,7 @@
 .close-reward {
   cursor: pointer;
 }
+
+.select-wrapper span.caret {
+  color: black;
+}

@@ -11,6 +11,8 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 })
 export class ProjectAllComponent implements OnInit {
   projects: Project[];
+  selectedCategory: string = "all";
+  categories: string[];
 
   funding = new FormGroup({
     amount: new FormControl('', Validators.required)
@@ -21,7 +23,8 @@ export class ProjectAllComponent implements OnInit {
   ngOnInit() {
     this.projectService.getProjects().subscribe((projects) => {
       this.projects = projects;
-    })
+    });
+    this.categories = this.projectService.getCategories();
   }
 
   goToDetails(project) {

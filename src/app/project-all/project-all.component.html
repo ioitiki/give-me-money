@@ -1,5 +1,14 @@
+<div class="row">
+  <div class="input-field col s6 offset-s3 category-select">
+    <select materialize="material_select" [materializeSelectOptions]="categories" [(ngModel)]="selectedCategory">
+      <option value="all">All</option>
+      <option *ngFor="let option of categories" [value]="option">{{option}}</option>
+    </select>
+  </div>
+</div>
 <div class="list-container">
-  <div *ngFor="let project of projects" class="card large z-depth-2 list-cards">
+
+  <div *ngFor="let project of projects | categoryFilter:selectedCategory" class="card large z-depth-2 list-cards">
     <div class="card-image">
       <img (click)="goToDetails(project)" src="{{project?.image_src}}">
     </div>
