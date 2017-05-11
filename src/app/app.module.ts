@@ -15,6 +15,7 @@ import { AboutComponent } from './about/about.component';
 import { routing } from './app.routing';
 import { ProjectDetailComponent } from './project-detail/project-detail.component';
 import { ProgressPipe } from './progress.pipe';
+import { ProjectEditComponent } from './project-edit/project-edit.component';
 
 
 export const firebaseConfig = {
@@ -31,7 +32,8 @@ export const firebaseConfig = {
     ProjectAllComponent,
     AboutComponent,
     ProjectDetailComponent,
-    ProgressPipe
+    ProgressPipe,
+    ProjectEditComponent
   ],
   imports: [
     BrowserModule,

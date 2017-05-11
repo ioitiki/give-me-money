@@ -27,10 +27,13 @@ export class ProjectService {
     return this.database.object('projects/' + projectId);
   }
 
-  updateProject(projectToUpdate) {
-    this.projects.update(projectToUpdate.$key, projectToUpdate);
+  updateProject(projectId: string, projectToUpdate) {
+    this.projects.update(projectId, projectToUpdate);
   }
 
+  deleteProject(projectId: string) {
+    this.projects.remove(projectId);
+  }
 
 
 

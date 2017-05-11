@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Project } from '../project.model';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { ProjectService } from '../project.service';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
@@ -21,7 +21,8 @@ export class ProjectDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private location: Location,
-    private projectService: ProjectService
+    private projectService: ProjectService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -36,7 +37,7 @@ export class ProjectDetailComponent implements OnInit {
   fundProject(project: Project) {
     project.progress += parseInt(this.funding.value.amount);
     project.backers++;
-    this.projectService.updateProject(project);
+    this.projectService.updateProject(this.projectId, project);
     this.funding.reset();
   }
 
@@ -46,6 +47,10 @@ export class ProjectDetailComponent implements OnInit {
 
   resetFunding() {
     this.funding.reset();
+  }
+
+  goToEdit() {
+    this.router.navigate(['project', this.projectId, 'edit']);
   }
 
 }

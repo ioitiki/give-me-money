@@ -28,10 +28,10 @@ export class ProjectAllComponent implements OnInit {
     this.router.navigate(['project', project.$key]);
   }
 
-  fundProject(project: Project) {
+  fundProject(project: any) {
     project.progress += parseInt(this.funding.value.amount);
     project.backers++;
-    this.projectService.updateProject(project);
+    this.projectService.updateProject(project.$key, project);
     this.funding.reset();
   }
 

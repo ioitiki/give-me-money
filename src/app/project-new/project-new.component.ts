@@ -21,7 +21,6 @@ export class ProjectNewComponent implements OnInit {
       description: ['', Validators.required],
       goal: ['', Validators.required],
       purpose: ['', Validators.required],
-      // rewards: ['', Validators.required],
       rewards: this.fb.array([]),
       category: ['', Validators.required],
       image_src: ['', Validators.required]
