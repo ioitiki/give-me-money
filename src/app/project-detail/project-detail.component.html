@@ -3,8 +3,8 @@
     <div class="col s12">
       <h2>{{project?.title}}</h2>
       <div class="chip">
-        <img src="http://kiwilandingpad.com/wp-content/uploads/2014/05/avatar-placeholder.png" alt="Contact Person">
-        {{project?.creator}}
+        <img src="{{projectCreator?.photoURL}}" alt="Contact Person">
+        {{projectCreator?.displayName}}
       </div>
     </div>
   </div>
@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="col s12 m4">
-      <a (click)="goToEdit()" class="btn waves-effect waves-light blue-grey darken-1">Edit Project</a>
+      <a *ngIf="user?.uid === project?.creator" (click)="goToEdit()" class="btn waves-effect waves-light blue-grey darken-1">Edit Project</a>
       <div class="progress">
         <div *ngIf="project" class="determinate" [ngStyle]="project | progress:'style'"></div>
       </div>

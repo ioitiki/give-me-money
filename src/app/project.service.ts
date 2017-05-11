@@ -35,6 +35,10 @@ export class ProjectService {
     this.projects.remove(projectId);
   }
 
+  getUserById(userId: string) {
+    return this.database.object('users/' + userId);
+  }
+
 
 
 }

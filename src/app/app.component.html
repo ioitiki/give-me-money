@@ -10,10 +10,10 @@
               {{user.displayName}}
             </div>
           </li>
-          <li><a routerLink="about"><i class="material-icons">info_outline</i></a></li>
-          <li><a routerLink="new"><i class="material-icons">add</i></a></li>
           <li *ngIf="!user"><a (click)="this.authService.login()">Login</a></li>
           <li *ngIf="user"><a (click)="this.authService.logout()">Logout</a></li>
+          <li><a routerLink="about"><i class="material-icons">info_outline</i></a></li>
+          <li *ngIf="user"><a routerLink="new"><i class="material-icons">add</i></a></li>
         </ul>
       </div>
     </nav>

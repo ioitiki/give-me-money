@@ -6,7 +6,7 @@ import * as firebase from 'firebase/app';
 
 @Injectable()
 export class AuthService {
-  user: Observable<firebase.User>
+  user: Observable<firebase.User>;
 
   constructor(private afAuth: AngularFireAuth, private db: AngularFireDatabase) {
     this.user = afAuth.authState;
@@ -20,9 +20,9 @@ export class AuthService {
         ref.once('value', (snapshot) => {
           if (!snapshot.hasChild(user.uid)) {
             var newUser = {
-              displayName: user.providerData[0].displayName,
-              email: user.providerData[0].email,
-              photoURL: user.providerData[0].photoURL
+              displayName: user.displayName,
+              email: user.email,
+              photoURL: user.photoURL
             }
             ref.child(user.uid).set(newUser);
           }

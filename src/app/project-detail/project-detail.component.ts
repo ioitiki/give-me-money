@@ -3,6 +3,7 @@ import { Project } from '../project.model';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { ProjectService } from '../project.service';
+import { AuthService } from '../auth.service';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 
 @Component({
@@ -13,6 +14,8 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 export class ProjectDetailComponent implements OnInit {
   projectId: string;
   project: Project;
+  projectCreator: any;
+  user: any = null;
 
   funding = new FormGroup({
     amount: new FormControl('', Validators.required)
@@ -22,6 +25,7 @@ export class ProjectDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private location: Location,
     private projectService: ProjectService,
+    private authService: AuthService,
     private router: Router
   ) { }
 
@@ -30,7 +34,13 @@ export class ProjectDetailComponent implements OnInit {
       this.projectId = urlParameters['id'];
       this.projectService.getProjectById(this.projectId).subscribe((project) => {
         this.project = project;
+        this.projectService.getUserById(this.project.creator).subscribe((user) => {
+          this.projectCreator = user;
+        })
       })
+    })
+    this.authService.getCurrentUser().subscribe(user => {
+      this.user = user;
     })
   }
 
