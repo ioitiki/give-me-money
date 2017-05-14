@@ -8,7 +8,7 @@
 </div>
 <div class="list-container">
 
-  <div *ngFor="let project of projects | categoryFilter:selectedCategory" class="card large z-depth-2 list-cards">
+  <div *ngFor="let project of projects | categoryFilter:selectedCategory | reverse" class="card large z-depth-2 list-cards">
     <div class="card-image">
       <img (click)="goToDetails(project)" src="{{project?.image_src}}">
     </div>

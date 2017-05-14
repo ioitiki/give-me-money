@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { MaterializeModule } from 'angular2-materialize';
 
 import { AppComponent } from './app.component';
-import { masterFirebaseConfig } from './api-keys';
+import { masterFirebaseConfig } from './../api-keys';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -19,6 +19,7 @@ import { ProjectDetailComponent } from './project-detail/project-detail.componen
 import { ProgressPipe } from './progress.pipe';
 import { ProjectEditComponent } from './project-edit/project-edit.component';
 import { CategoryFilterPipe } from './category-filter.pipe';
+import { ReversePipe } from './reverse.pipe';
 
 
 export const firebaseConfig = {
@@ -37,7 +38,8 @@ export const firebaseConfig = {
     ProjectDetailComponent,
     ProgressPipe,
     ProjectEditComponent,
-    CategoryFilterPipe
+    CategoryFilterPipe,
+    ReversePipe
   ],
   imports: [
     BrowserModule,
